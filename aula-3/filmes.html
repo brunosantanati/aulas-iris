@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Filmes</title>
+    <script lang="javascript">
+        /*
+        1-precisa fazer igual o de livros(abrir um prompt 
+        e guardar em uma variável o nome do filme)
+
+        2-Se cancelou, mostra msg de cancelou
+
+        3-Se apertou OK mostra as informações do filme ou uma mensagem de que não digitou nada
+
+        4-As informações do filme devem ser: nome do diretor e ano de lançamento
+        */
+        
+        var nomefilme = prompt("Escreva o nome de um filme");
+        if(nomefilme ==null){
+
+            alert("cancelado")
+
+        }else{
+  
+            if(nomefilme == ""){
+                alert("wow boboca você não escreveu nada!");
+            }else if(nomefilme == "Emojis o Filme"){
+                alert("direção: Tony Leondis, lançamento: 2017");
+            }else if(nomefilme == "Titanic"){
+                alert("direção: James Cameron, lançamento: 1997");
+            }else if(nomefilme == "Guardiões da Galáxia"){
+                alert("direção: James Gunn, lançamento: 2014");
+            }else{
+                alert("Idiota, o nome  está eeeeeerraaaaaaaaaaaaaaaaaado!!!!!!!!!!!!");
+            }
+            
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

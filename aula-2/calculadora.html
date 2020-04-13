@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Calculadora</title>
+
+        <script>
+            function somar(){
+                var numero1 = document.getElementById("num1").value;
+                var numero2 = document.getElementById("num2").value;
+                alert("A soma dos números é");
+                alert(parseFloat(numero1) + parseFloat(numero2));
+            }
+ 
+            function subtrair() {
+                var numero3 = document.getElementById("num3").value;
+                var numero4 = document.getElementById("num4").value;
+                alert("A subtração dos números é");
+                alert(parseFloat(numero3) - parseFloat(numero4));
+            }
+        </script>
+    </head>
+ 
+    <body>
+        <div>
+            Numero 1: <input type="text" id="num1">
+            Numero 2: <input type="text" id="num2">
+            <button onclick="somar()">Somar</button>
+        </div>
+
+        <div>
+            Numero 3: <input type="text" id="num3">
+            Numero 4: <input type="text" id="num4">
+            <button onclick="subtrair()">Subtrair</button>
+        </div>
+    </body>
+
+</html>

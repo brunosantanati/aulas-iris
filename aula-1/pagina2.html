@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Minha primeira pagina</title>
+
+        <style>
+            img{
+                width: 200px;
+                height: 200px;
+            }
+
+            .imagem{
+                position: relative;
+                float: left;
+            }
+
+            .texto{
+                padding: 30px;
+            }
+        </style>
+
+        <script>
+            /*
+            1-criar um script com uma variável nome
+            2-guardar o seu nome nessa variável
+            3-verificar se o nome é Íris, se for exibe o texto "Olá Íris, filha do Bruno"
+            4-verificar se o nome é Bruno, se for exibe o texto "Olá Bruno, pai da Íris"
+            5-se for qualquer outro nome, exibir apenas o texto "Olá fulano"
+            */
+
+           var nome = 'Aline'
+
+            if(nome === 'IRIS'){
+                alert('olá ' + nome + ',filha do bruno')
+            }else if(nome === 'bruno'){
+                alert('ola ' + nome + ' pai da iris')
+            }else{
+                alert('ola ' + nome)
+            }
+        </script>
+    </head>
+
+    <body>
+        <img class="imagem" src="https://assets.xtechcommerce.com/uploads/images/medium/634bf1534a8ac2ac8c471127d4c90a71.jpg">
+        <div class="texto">diamante bonito! adorei! e tamanho perfeito! amei o trabalho do papai!</div>
+    </body>
+
+</html>
