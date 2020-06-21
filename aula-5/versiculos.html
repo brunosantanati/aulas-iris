@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Versículos sobre crianças</title>
+    </head>
+
+    <body>
+        <script>
+            //1-colocar o restante dos versículos
+            let versiculos = [
+                'Então disse Jesus: "Deixem vir a mim as crianças e não as impeçam; pois o Reino dos céus pertence aos que são semelhantes a elas". Mateus 19:14',
+                'Instrua a criança segundo os objetivos que você tem para ela, e mesmo com o passar dos anos não se desviará deles. Provérbios 22:6',
+                'Todos os seus filhos serão ensinados pelo Senhor,e grande será a paz de suas crianças. Isaías 54:13',
+                'Filhos, obedeçam a seus pais no Senhor, pois isso é justo. "Honra teu pai e tua mãe" - este é o primeiro mandamento com promessa - "para que tudo te corra bem e tenhas longa vida sobre a terra". Efésios 6:1-3',
+                'Ouça, meu filho, a instrução de seu pai e não despreze o ensino de sua mãe. Eles serão um enfeite para a sua cabeça, um adorno para o seu pescoço. Provérbios 1:8-9',
+                'e disse: "Eu asseguro que, a não ser que vocês se convertam e se tornem como crianças, jamais entrarão no Reino dos céus. Portanto, quem se faz humilde como esta criança, este é o maior no Reino dos céus. "Quem recebe uma destas crianças em meu nome, está me recebendo. Mateus 18:3-5',
+                'Até a criança mostra o que é por suas ações; o seu procedimento revelará se ela é pura e justa. Provérbios 20:11',
+                'Os vivos, somente os vivos, te louvam, como hoje estou fazendo; os pais contam a tua fidelidade a seus filhos. Isaías 38:19',
+                'Os filhos dos filhos são uma coroa para os idosos, e os pais são o orgulho dos seus filhos. Provérbios 17:6',
+                'Filhinhos, eu escrevo a vocês porque os seus pecados foram perdoados, graças ao nome de Jesus. 1 João 2:12'
+            ]
+
+        
+
+            //2-Fazer um loop for e mostrar todos versículos.
+            //3-Todo versículo que tem o nome Jesus no texto deve ser mostrado em vermelho.
+
+            //EXEMPLO
+            /*
+            if(verificaSeTemJesusNoTexto(versiculos[0])){
+                document.write('<span style="color: red">' + versiculos[0] + '</span>')    
+            }else{
+                document.write(versiculos[0])
+            }
+            document.write('<br>')
+            */
+
+            for (let i=0; i < versiculos.length; i++){
+                if(verificaSeTemJesusNoTexto(versiculos[i])){
+                    document.write('<span style="color: red">' + versiculos[i] + '</span>')    
+                }else{
+                    document.write(versiculos[i])
+                }
+                document.write('<br>')
+            }
+
+            function verificaSeTemJesusNoTexto(texto){
+                return texto.includes('Jesus')
+            }
+        </script>
+    </body>
+
+</html>
