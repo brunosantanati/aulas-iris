@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>Super Trunfo</title>
+    </head>
+
+    <body>
+        <script>
+            let todasCartas = [
+                { nome: "Pinguim", forca: 5, habilidade: 50, velocidade: 3, poderes: 5, poderDeCura: 10 },
+                { nome: "Era Venenosa", forca: 5, habilidade: 60, velocidade: 4, poderes: 15, poderDeCura: 25 },
+                { nome: "Espantalho", forca: 10, habilidade: 50, velocidade: 5, poderes: 5, poderDeCura: 10 },
+                { nome: "Charada", forca: 10, habilidade: 60, velocidade: 5, poderes: 5, poderDeCura: 10 },
+                { nome: "Flash", forca: 20, habilidade: 100, velocidade: 20, poderes: 40, poderDeCura: 80},
+                { nome: "Cyborg", forca: 25, habilidade: 70, velocidade: 10, poderes: 35, poderDeCura: 65 },
+                { nome: "Super Homem", forca: 50, habilidade: 95, velocidade: 20, poderes: 45, poderDeCura: 80 },
+                { nome: "Mulher Maravilha", forca: 45, habilidade: 90, velocidade: 18, poderes: 45, poderDeCura: 80 },
+                { nome: "Mulher Gato", forca: 10, habilidade: 85, velocidade: 7, poderes: 5, poderDeCura: 15 },
+                { nome: "Gavião Negro", forca: 20, habilidade: 70, velocidade: 17, poderes: 30, poderDeCura: 65 },
+                { nome: "Arqueiro Verde", forca: 10, habilidade: 80, velocidade: 8, poderes: 10, poderDeCura: 30 },
+                { nome: "Capitão Átomo", forca: 25, habilidade: 65, velocidade: 14, poderes: 25, poderDeCura: 30 },
+                { nome: "Sinestro", forca: 35, habilidade: 70, velocidade: 17, poderes: 35, poderDeCura: 50 },
+                { nome: "Apocalypse", forca: 50, habilidade: 55, velocidade: 17, poderes: 45, poderDeCura: 75 },
+                { nome: "Shazam", forca: 45, habilidade: 70, velocidade: 19, poderes: 40, poderDeCura: 75 },
+                { nome: "Katana", forca: 10, habilidade: 80, velocidade: 7, poderes: 10, poderDeCura: 25 },
+                { nome: "Crocodilo", forca: 20, habilidade: 60, velocidade: 3, poderes: 25, poderDeCura: 60 },
+                { nome: "General Zod", forca: 45, habilidade: 90, velocidade: 18, poderes: 45, poderDeCura: 80 },
+                { nome: "Aquaman", forca: 35, habilidade: 90, velocidade: 17, poderes: 40, poderDeCura: 65 },
+                { nome: "Exterminador", forca: 20, habilidade: 85, velocidade: 8, poderes: 10, poderDeCura: 35 }
+            ]
+
+            let minhasCartas = []
+            let cartasDaMaquina = []
+
+            for(let i=0; i < todasCartas.length; i++){
+                if(i % 2){
+                    minhasCartas.push(todasCartas[i])
+                }else{
+                    cartasDaMaquina.push(todasCartas[i])
+                }
+            }
+
+            //console.log("minhas cartas:")
+            //console.log(minhasCartas)
+            //console.log("cartas da máquina:")
+            //console.log(cartasDaMaquina)
+
+            while(minhasCartas.length > 0 && cartasDaMaquina.length > 0){
+
+                let minhaCarta = minhasCartas[Math.floor(Math.random() * minhasCartas.length)]
+                //console.log(minhaCarta)
+                let cartaMaquina = cartasDaMaquina[Math.floor(Math.random() * cartasDaMaquina.length)]
+                //console.log(cartaMaquina)
+
+                let caracteristica = prompt("Escolha a característica desejada:");
+
+                if(caracteristica != null){
+                    //console.log(caracteristica)
+                    //console.log(minhaCarta[caracteristica])
+                    //console.log(cartaMaquina[caracteristica])
+
+                    let valorCaracteristica = minhaCarta[caracteristica]
+                    let valorCaracteristicaMaquina = cartaMaquina[caracteristica]
+
+                    document.write("Característica escolhida: " + caracteristica)
+                    document.write("<br>")
+                    document.write("<br>")
+                    document.write("Meu personagem: ")
+                    document.write("<br>")
+                    document.write("Nome " + minhaCarta.nome)
+                    document.write("<br>")
+                    document.write(caracteristica + " " + valorCaracteristica)
+                    document.write("<br>")
+                    document.write("<br>")
+                    document.write("Personagem da máquina: ")
+                    document.write("<br>")
+                    document.write("Nome " + cartaMaquina.nome)
+                    document.write("<br>")
+                    document.write(caracteristica + " " + valorCaracteristicaMaquina)
+                    document.write("<br>")
+                    document.write("<br>")
+
+                    if(valorCaracteristica > valorCaracteristicaMaquina){
+                       document.write("Você ganhou!!!") 
+                    }else if (valorCaracteristicaMaquina > valorCaracteristica){
+                        document.write("A máquina ganhou de voce seu frango!!!")
+                    }else{
+                        document.write("EMPATE! Pode considerar que você e a máquina ganharam!")
+                    }
+                }
+
+                break
+
+            }
+        </script>
+    </body>
+
+</html>
