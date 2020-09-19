@@ -5,6 +5,49 @@
 
     <body>
         <script>
+
+            function mostrarMinhaCarta(minhaCarta){
+                alert('SUA CARTA\n\n' + 
+                    'nome: ' + minhaCarta.nome + '\n' +
+                    'força: ' + minhaCarta.forca + '\n' +
+                    'habilidade: ' + minhaCarta.habilidade + '\n' +
+                    'velocidade: ' + minhaCarta.velocidade + '\n' +
+                    'poderes: ' + minhaCarta.poderes + '\n' +
+                    'poder de cura: ' + minhaCarta.poderDeCura + '\n')
+            }
+
+            function pegarEntradaUsuario(){
+                let numero = prompt("Escolha a característica desejada:\n" + 
+                    "1 - força\n" +
+                    "2 - habilidade\n" +
+                    "3 - velocidade\n" +
+                    "4 - poderes\n "   +
+                    "5 - poder de cura\n");
+
+                if(numero == null){
+                    return null
+                }
+
+                let caracteristica = ''
+                let matrizCaracteristicas = [
+                    ['1', 'forca'],
+                    ['2', 'habilidade'],
+                    ['3', 'velocidade'],
+                    ['4', 'poderes'],
+                    ['5', 'poderDeCura']
+                ]
+
+                for(let i=0; i < matrizCaracteristicas.length; i++){
+                    for(let j=0; j < matrizCaracteristicas.length; j++){
+                        if(numero == matrizCaracteristicas[i][j]){
+                            caracteristica = matrizCaracteristicas[i][j+1]
+                        }
+                    }
+                }
+
+                return caracteristica
+            }
+
             let todasCartas = [
                 { nome: "Pinguim", forca: 5, habilidade: 50, velocidade: 3, poderes: 5, poderDeCura: 10 },
                 { nome: "Era Venenosa", forca: 5, habilidade: 60, velocidade: 4, poderes: 15, poderDeCura: 25 },
@@ -51,15 +94,9 @@
                 let cartaMaquina = cartasDaMaquina[Math.floor(Math.random() * cartasDaMaquina.length)]
                 //console.log(cartaMaquina)
 
-                alert('SUA CARTA\n\n' + 
-                    'nome: ' + minhaCarta.nome + '\n' +
-                    'força: ' + minhaCarta.forca + '\n' +
-                    'habilidade: ' + minhaCarta.habilidade + '\n' +
-                    'velocidade: ' + minhaCarta.velocidade + '\n' +
-                    'poderes: ' + minhaCarta.poderes + '\n' +
-                    'poder de cura: ' + minhaCarta.poderDeCura + '\n')
+                mostrarMinhaCarta(minhaCarta)
 
-                let caracteristica = prompt("Escolha a característica desejada:");
+                let caracteristica = pegarEntradaUsuario()
 
                 if(caracteristica != null){
                     //console.log(caracteristica)
