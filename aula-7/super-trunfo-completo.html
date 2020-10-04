@@ -33,13 +33,20 @@
             let cartasDaMaquina = []
 
             function distribuirCartas(){
-                for(let i=0; i < todasCartas.length; i++){
+                let i = 0
+                while(todasCartas.length > 0){
+                    let posicaoRandom = Math.floor(Math.random() * todasCartas.length)
+                    let carta = todasCartas[posicaoRandom]
                     if(i % 2){
-                        minhasCartas.push(todasCartas[i])
+                        minhasCartas.push(carta)
                     }else{
-                        cartasDaMaquina.push(todasCartas[i])
+                        cartasDaMaquina.push(carta)
                     }
+                    todasCartas.splice(posicaoRandom, 1)
+                    i++
                 }
+                /*alert('Minhas cartas: ' + pegarNomesDasCartas(minhasCartas) + 
+                    '\n' + 'Cartas da máquina: ' + pegarNomesDasCartas(cartasDaMaquina))*/
             }
 
             function mostrarMinhaCarta(minhaCarta){
