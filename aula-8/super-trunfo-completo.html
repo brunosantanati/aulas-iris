@@ -1,0 +1,215 @@
+<html>
+    <head>
+        <title>Super Trunfo</title>
+    </head>
+
+    <body>
+        <script>
+
+            class Heroe{
+                constructor(nome, forca, habilidade, velocidade, poderes, poderDeCura, imagem){
+                    this.nome = nome;
+                    this.forca = forca;
+                    this.habilidade = habilidade;
+                    this.velocidade = velocidade;
+                    this.poderes = poderes;
+                    this.poderDeCura = poderDeCura;
+                    this.imagem = imagem
+                }
+            }
+
+            let todasCartas = [
+                new Heroe("Pinguim", 5, 50, 3, 5, 10, "teste.png"),
+                new Heroe("Era Venenosa", 5, 60, 4, 15, 25, "teste.png"),
+                new Heroe("Espantalho", 10, 50, 5, 5, 10, "teste.png"),
+                new Heroe("Mulher Maravilha", 45, 90, 18, 45, 80, "mulher-marvilha.png"),
+                new Heroe("Charada", 10, 60, 5, 5, 10, "teste.png"),
+                new Heroe("Flash", 20, 100, 20, 40, 80, "teste.png"),
+                new Heroe("Cyborg", 25, 70, 10, 35, 65, "teste.png"),
+                new Heroe("Super Homem", 50, 95, 20, 45, 80, "teste.png"),
+                new Heroe("Mulher Gato", 10, 85, 7, 5, 15, "teste.png"),
+                new Heroe("Gavião Negro", 20, 70, 17, 30, 65, "teste.png"),
+                new Heroe("Arqueiro Verde", 10, 80, 8, 10, 30, "teste.png"),
+                new Heroe("Capitão Átomo", 25, 65, 14, 25, 30, "teste.png"),
+                new Heroe("Sinestro", 35, 70, 17, 35, 50, "teste.png"),
+                new Heroe("Apocalypse", 50, 55, 17, 45, 75, "teste.png"),
+                new Heroe("Shazam", 45, 70, 19, 40, 75, "teste.png"),
+                new Heroe("Katana", 10, 80, 7, 10, 25, "teste.png"),
+                new Heroe("Crocodilo", 20, 60, 3, 25, 60, "teste.png"),
+                new Heroe("General Zod", 45, 90, 18, 45, 80, "teste.png"),
+                new Heroe("Aquaman", 35, 90, 17, 40, 65, "teste.png"),
+                new Heroe("Exterminador", 20, 85, 8, 10, 35, "teste.png")
+            ]
+
+            let minhasCartas = []
+            let cartasDaMaquina = []
+
+            function distribuirCartas(){
+                let i = 0
+                while(todasCartas.length > 0){
+                    let posicaoRandom = Math.floor(Math.random() * todasCartas.length)
+                    let carta = todasCartas[posicaoRandom]
+                    if(i % 2){
+                        minhasCartas.push(carta)
+                    }else{
+                        cartasDaMaquina.push(carta)
+                    }
+                    todasCartas.splice(posicaoRandom, 1)
+                    i++
+                }
+                /*alert('Minhas cartas: ' + pegarNomesDasCartas(minhasCartas) + 
+                    '\n' + 'Cartas da máquina: ' + pegarNomesDasCartas(cartasDaMaquina))*/
+            }
+
+            function mostrarMinhaCarta(minhaCarta){
+                alert('SUA CARTA\n\n' + 
+                    'nome: ' + minhaCarta.nome + '\n' +
+                    'força: ' + minhaCarta.forca + '\n' +
+                    'habilidade: ' + minhaCarta.habilidade + '\n' +
+                    'velocidade: ' + minhaCarta.velocidade + '\n' +
+                    'poderes: ' + minhaCarta.poderes + '\n' +
+                    'poder de cura: ' + minhaCarta.poderDeCura + '\n')
+            }
+
+            function pegarEntradaUsuario(){
+                let numero = prompt("Escolha a característica desejada:\n" + 
+                    "1 - força\n" +
+                    "2 - habilidade\n" +
+                    "3 - velocidade\n" +
+                    "4 - poderes\n"   +
+                    "5 - poder de cura\n");
+
+                if(numero == null){
+                    return null
+                }
+
+                let caracteristica = ''
+                let matrizCaracteristicas = [
+                    ['1', 'forca'],
+                    ['2', 'habilidade'],
+                    ['3', 'velocidade'],
+                    ['4', 'poderes'],
+                    ['5', 'poderDeCura']
+                ]
+
+                for(let i=0; i < matrizCaracteristicas.length; i++){
+                    for(let j=0; j < matrizCaracteristicas.length; j++){
+                        if(numero == matrizCaracteristicas[i][j]){
+                            caracteristica = matrizCaracteristicas[i][j+1]
+                        }
+                    }
+                }
+
+                return caracteristica
+            }
+
+            function pegarNomesDasCartas(cartas){
+                return cartas.map((carta) => {
+                    return carta.nome
+                })
+            }
+
+            function moverCartasParaOGanhador(cartasGanhador, cartasPerdedor, minhaCarta, cartaMaquina){
+                cartasGanhador.push(minhaCarta)
+                cartasGanhador.push(cartaMaquina)
+                cartasGanhador.splice(0, 1)
+                cartasPerdedor.splice(0, 1)
+            }
+
+            function mostrarImagem(carta){
+                document.write('<img src="C:\\Users\\55119\\Documents\\aulas-iris\\aula-8\\imagens-super-trunfo\\' + carta.imagem + '">')
+            }
+
+            function imprimirDetalhesDaRodada(caracteristica, minhaCarta, cartaMaquina, 
+                valorCaracteristica, valorCaracteristicaMaquina){
+
+                document.write("###################################################")
+                document.write("<br>")
+                document.write("Característica escolhida: " + caracteristica)
+                document.write("<br>")
+                document.write("<br>")
+                document.write("Meu personagem: ")
+                document.write("<br>")
+                document.write("Nome " + minhaCarta.nome)
+                document.write("<br>")
+                document.write(caracteristica + " " + valorCaracteristica)
+                document.write("<br>")
+                document.write("<br>")
+                mostrarImagem(minhaCarta)
+                document.write("<br>")
+                document.write("<br>")
+                document.write("Personagem da máquina: ")
+                document.write("<br>")
+                document.write("Nome " + cartaMaquina.nome)
+                document.write("<br>")
+                document.write(caracteristica + " " + valorCaracteristicaMaquina)
+                document.write("<br>")
+                document.write("<br>")
+                mostrarImagem(cartaMaquina)
+                document.write("<br>")
+                document.write("<br>")
+            }
+
+            function imprimirCartas(){
+                let nomesMinhasCartas = pegarNomesDasCartas(minhasCartas)
+                let nomesCartasDaMaquina = pegarNomesDasCartas(cartasDaMaquina)
+
+                document.write("Minhas cartas: " + nomesMinhasCartas)
+                document.write("<br>")
+                document.write("Cartas da máquina: " + nomesCartasDaMaquina)
+                document.write("<br>")
+                document.write("<br>")
+            }
+
+            function iniciarJogo(){
+
+                distribuirCartas()
+
+                while(minhasCartas.length > 0 && cartasDaMaquina.length > 0){
+
+                    let minhaCarta = minhasCartas[0]
+                    let cartaMaquina = cartasDaMaquina[0]
+
+                    mostrarMinhaCarta(minhaCarta)
+
+                    let caracteristica = pegarEntradaUsuario()
+
+                    if(caracteristica != null){
+
+                        let valorCaracteristica = minhaCarta[caracteristica]
+                        let valorCaracteristicaMaquina = cartaMaquina[caracteristica]
+
+                        imprimirDetalhesDaRodada(caracteristica, minhaCarta, cartaMaquina, 
+                            valorCaracteristica, valorCaracteristicaMaquina)
+
+                        if(valorCaracteristica > valorCaracteristicaMaquina){
+                            alert('Você venceu essa rodada')
+                            moverCartasParaOGanhador(minhasCartas, cartasDaMaquina, minhaCarta, cartaMaquina)
+                        }else if (valorCaracteristicaMaquina > valorCaracteristica){
+                            alert('Você perdeu essa rodada')
+                            moverCartasParaOGanhador(cartasDaMaquina, minhasCartas, minhaCarta, cartaMaquina)
+                        }else{
+                            //essa regra depois podemos mudar para deixar igual do jogo original
+                            alert('Empatou, movendo cartas para o final do baralho.')
+                            minhasCartas.push(minhaCarta)
+                            cartasDaMaquina.push(cartaMaquina)
+                            cartasDaMaquina.splice(0, 1)
+                            minhasCartas.splice(0, 1)
+                        }
+
+                        imprimirCartas()
+                    }
+
+                }
+                if (minhasCartas.length == 0){
+                    alert("você perdeu o jogo!")
+                }else {
+                    alert("você ganhou!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!o jogo.")
+                }                       
+            }
+
+            iniciarJogo()
+        </script>
+    </body>
+
+</html>
