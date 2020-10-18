@@ -7,7 +7,7 @@
         <script>
 
             class Heroe{
-                constructor(nome, forca, habilidade, velocidade, poderes, poderDeCura, imagem){
+                constructor(nome, forca, habilidade, velocidade, poderes, poderDeCura, imagem, imgPaisagem){
                     this.nome = nome;
                     this.forca = forca;
                     this.habilidade = habilidade;
@@ -15,30 +15,31 @@
                     this.poderes = poderes;
                     this.poderDeCura = poderDeCura;
                     this.imagem = imagem
+                    this.imgPaisagem = imgPaisagem
                 }
             }
 
             let todasCartas = [
-                new Heroe("Pinguim", 5, 50, 3, 5, 10, "teste.png"),
-                new Heroe("Era Venenosa", 5, 60, 4, 15, 25, "teste.png"),
-                new Heroe("Espantalho", 10, 50, 5, 5, 10, "teste.png"),
-                new Heroe("Mulher Maravilha", 45, 90, 18, 45, 80, "mulher-marvilha.png"),
-                new Heroe("Charada", 10, 60, 5, 5, 10, "teste.png"),
-                new Heroe("Flash", 20, 100, 20, 40, 80, "teste.png"),
-                new Heroe("Cyborg", 25, 70, 10, 35, 65, "teste.png"),
-                new Heroe("Super Homem", 50, 95, 20, 45, 80, "teste.png"),
-                new Heroe("Mulher Gato", 10, 85, 7, 5, 15, "teste.png"),
-                new Heroe("Gavião Negro", 20, 70, 17, 30, 65, "teste.png"),
-                new Heroe("Arqueiro Verde", 10, 80, 8, 10, 30, "teste.png"),
-                new Heroe("Capitão Átomo", 25, 65, 14, 25, 30, "teste.png"),
-                new Heroe("Sinestro", 35, 70, 17, 35, 50, "teste.png"),
-                new Heroe("Apocalypse", 50, 55, 17, 45, 75, "teste.png"),
-                new Heroe("Shazam", 45, 70, 19, 40, 75, "teste.png"),
-                new Heroe("Katana", 10, 80, 7, 10, 25, "teste.png"),
-                new Heroe("Crocodilo", 20, 60, 3, 25, 60, "teste.png"),
-                new Heroe("General Zod", 45, 90, 18, 45, 80, "teste.png"),
-                new Heroe("Aquaman", 35, 90, 17, 40, 65, "teste.png"),
-                new Heroe("Exterminador", 20, 85, 8, 10, 35, "teste.png")
+                new Heroe("Pinguim", 5, 50, 3, 5, 10, "pinguin.jpg", true),
+                new Heroe("Era Venenosa", 5, 60, 4, 15, 25, "era-venenosa.jpg", false),
+                new Heroe("Espantalho", 10, 50, 5, 5, 10, "espantalho.jpg", false),
+                new Heroe("Mulher Maravilha", 45, 90, 18, 45, 80, "mulher-marvilha.png", false),
+                new Heroe("Charada", 10, 60, 5, 5, 10, "charada.jpg", false),
+                new Heroe("Flash", 20, 100, 20, 40, 80, "flash.png", false),
+                new Heroe("Cyborg", 25, 70, 10, 35, 65, "cyborg.jpg", false),
+                new Heroe("Super Homem", 50, 95, 20, 45, 80, "super-homem.png", true),
+                new Heroe("Mulher Gato", 10, 85, 7, 5, 15, "mulher-gato.png", false),
+                new Heroe("Gavião Negro", 20, 70, 17, 30, 65, "gaviao-negro.jpg", false),
+                new Heroe("Arqueiro Verde", 10, 80, 8, 10, 30, "arqueiro-verde.png", false),
+                new Heroe("Capitão Átomo", 25, 65, 14, 25, 30, "capitao-atomo.png", false),
+                new Heroe("Sinestro", 35, 70, 17, 35, 50, "sinestro.jpg", false),
+                new Heroe("Apocalypse", 50, 55, 17, 45, 75, "apocalypse.png", false),
+                new Heroe("Shazam", 45, 70, 19, 40, 75, "shazam.jpg", false),
+                new Heroe("Katana", 10, 80, 7, 10, 25, "katana.jpg", false),
+                new Heroe("Crocodilo", 20, 60, 3, 25, 60, "crocodilo.jpg", true),
+                new Heroe("General Zod", 45, 90, 18, 45, 80, "general-zod.png", true),
+                new Heroe("Aquaman", 35, 90, 17, 40, 65, "aquaman.jpg", false),
+                new Heroe("Exterminador", 20, 85, 8, 10, 35, "exterminador.jpg", false)
             ]
 
             let minhasCartas = []
@@ -59,6 +60,18 @@
                 }
                 /*alert('Minhas cartas: ' + pegarNomesDasCartas(minhasCartas) + 
                     '\n' + 'Cartas da máquina: ' + pegarNomesDasCartas(cartasDaMaquina))*/
+
+                //inicio gambi para acabar jogo mais rápido e testar imagens que colocamos - apagar depois
+                /*for(let i=0; i < minhasCartas.length; i++){
+                    let mc = minhasCartas[i]
+                    mc.forca = 100;
+                    mc.habilidade = 100;
+                    mc.velocidade = 100;
+                    mc.poderes = 100;
+                    mc.poderDeCura = 100;
+                    minhasCartas[i] = mc
+                }*/
+                //fim gambi - apagar depois
             }
 
             function mostrarMinhaCarta(minhaCarta){
@@ -117,7 +130,20 @@
             }
 
             function mostrarImagem(carta){
-                document.write('<img src="C:\\Users\\55119\\Documents\\aulas-iris\\aula-8\\imagens-super-trunfo\\' + carta.imagem + '">')
+
+                let width = 0
+                let height = 0
+
+                if(carta.imgPaisagem){
+                    width = 400
+                    height = 300
+                }else{
+                    width = 300
+                    height = 400
+                }
+
+                document.write('<img src="C:\\Users\\55119\\Documents\\aulas-iris\\aula-8\\imagens-super-trunfo\\' 
+                        + carta.imagem + '" width="' + width + '" height="' + height + '">')
             }
 
             function imprimirDetalhesDaRodada(caracteristica, minhaCarta, cartaMaquina, 
