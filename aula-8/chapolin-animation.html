@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Chapolin</title>
+        <style>
+            .imagem{
+                width: 550;
+                height: 500;
+                background-image: url("imagens-animacao/chapolin1.png");
+                background-position: center;
+                animation: img-animation 4s infinite;
+            }
+
+            @keyframes img-animation {
+                from {background-image: url("imagens-animacao/chapolin1.png");}
+                to {background-image: url("imagens-animacao/chapolin2.png");}
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="imagem" id="div-imagem"></div>
+    </body>
+
+</html>

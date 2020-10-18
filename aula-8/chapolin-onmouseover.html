@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Chapolin</title>
+        <style>
+            .imagem{
+                width: 550;
+                height: 500;
+                background-image: url("imagens-animacao/chapolin1.png");
+                background-position: center;
+            }
+        </style>
+        <script>
+            function colocarImagem2(){
+                document.getElementById("div-imagem").style.backgroundImage = "url('imagens-animacao/chapolin2.png')";
+            }
+
+            function colocarImagem1(){
+                document.getElementById("div-imagem").style.backgroundImage = "url('imagens-animacao/chapolin1.png')";
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="imagem" id="div-imagem" onmouseover="colocarImagem2()" onmouseout="colocarImagem1()"></div>
+    </body>
+
+</html>
