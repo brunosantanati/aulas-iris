@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Pedra papel tesoura</title>
+
+        <script>
+            let minhaEscolha =  prompt("digite Pedra,Papel ou Tesoura")
+            minhaEscolha = minhaEscolha.toLowerCase()
+
+            if(minhaEscolha != "pedra" && minhaEscolha != "papel" && minhaEscolha != "tesoura"){
+                alert("Opção inválida")
+            }else{
+
+                let opcoes = ["pedra","papel","tesoura"]
+                let numeroSorteado = Math.floor(Math.random() * opcoes.length)
+                let escolhaMaquina = opcoes[numeroSorteado]
+
+                function mostrarMensagem(mensagem){
+                    alert(mensagem + "\n" +
+                        "sua opção: " + minhaEscolha + "\n" +
+                        "opção máquina: " + escolhaMaquina)
+                }
+
+                function empatou(){
+                    mostrarMensagem("EMPATE!")
+                }
+
+                function voceGanhou(){
+                    mostrarMensagem("Você ganhou")
+                }
+
+                function vocePerdeu(){
+                    mostrarMensagem("Você perdeu")
+                }
+
+                if (minhaEscolha == escolhaMaquina){
+                    empatou()
+                }else if (minhaEscolha == "pedra" && escolhaMaquina == "tesoura"){
+                    voceGanhou()
+                }else if(minhaEscolha == "papel" && escolhaMaquina == "pedra"){
+                    voceGanhou()
+                }else if(minhaEscolha == "tesoura" && escolhaMaquina == "papel"){
+                    voceGanhou()
+                }else if (minhaEscolha == "tesoura" && escolhaMaquina == "pedra"){
+                    vocePerdeu()
+                }else if(minhaEscolha == "pedra" && escolhaMaquina == "papel"){
+                    vocePerdeu()
+                }else if(minhaEscolha == "papel " && escolhaMaquina == "tesoura"){
+                    vocePerdeu()    
+                }
+
+            }
+
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>
