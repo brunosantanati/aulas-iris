@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Jogo Da Velha</title>
+    </head>
+
+    <body>
+        <div>
+            <table>
+                <tr>
+                    <td><input type=text id="l1c1" onblur="verificarTodasPossibilidades()"></td>
+                    <td><input type=text id="l1c2" onblur="verificarTodasPossibilidades()"></td>
+                    <td><input type=text id="l1c3" onblur="verificarTodasPossibilidades()"></td>
+                </tr>
+                <tr>
+                    <td><input type=text id="l2c1" onblur="verificarTodasPossibilidades()"></td>
+                    <td><input type=text id="l2c2" onblur="verificarTodasPossibilidades()"></td>
+                    <td><input type=text id="l2c3" onblur="verificarTodasPossibilidades()"></td>
+                </tr>
+                <tr>
+                    <td><input type=text id="l3c1" onblur="verificarTodasPossibilidades()"></td>
+                    <td><input type=text id="l3c2" onblur="verificarTodasPossibilidades()"></td>
+                    <td><input type=text id="l3c3" onblur="verificarTodasPossibilidades()"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="mensagem">
+        </div>
+
+        <script>
+            function verificarSeGanhou(valor1, valor2, valor3){
+                let mensagem = ""
+                if((valor1 === valor2 && valor1 === valor3) && valor1 != ""){
+                    if(valor1 === "X"){
+                        mensagem = "O jogador com X ganhou"
+                    }else{
+                        mensagem = "O jogador com O ganhou"
+                    }
+
+                    document.getElementById('mensagem').innerHTML = mensagem
+                }
+            }
+
+            function verificarTodasPossibilidades(){
+
+                let l1c1 = document.getElementById('l1c1').value.toUpperCase()
+                let l1c2 = document.getElementById('l1c2').value.toUpperCase()
+                let l1c3 = document.getElementById('l1c3').value.toUpperCase()
+                let l2c1 = document.getElementById('l2c1').value.toUpperCase()
+                let l2c2 = document.getElementById('l2c2').value.toUpperCase()
+                let l2c3 = document.getElementById('l2c3').value.toUpperCase()
+                let l3c1 = document.getElementById('l3c1').value.toUpperCase()
+                let l3c2 = document.getElementById('l3c2').value.toUpperCase()
+                let l3c3 = document.getElementById('l3c3').value.toUpperCase()
+
+                verificarSeGanhou(l1c1, l1c2, l1c3)
+                
+            }
+        </script>
+    </body>
+
+</html>
