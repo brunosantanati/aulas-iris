@@ -28,8 +28,12 @@
 
         <script>
             function verificarSeGanhou(valor1, valor2, valor3){
+                let ganhou = false
                 let mensagem = ""
                 if((valor1 === valor2 && valor1 === valor3) && valor1 != ""){
+
+                    ganhou = true
+
                     if(valor1 === "X"){
                         mensagem = "O jogador com X ganhou"
                     }else{
@@ -37,6 +41,14 @@
                     }
 
                     document.getElementById('mensagem').innerHTML = mensagem
+                }
+                return ganhou
+            }
+
+            function verificarEmpate(valor1, valor2, valor3, valor4, valor5, valor6, valor7, valor8, valor9){
+                if(valor1 != "" && valor2 != "" && valor3 != "" && valor4 != "" &&
+                    valor5 != "" && valor6 != "" && valor7 != "" && valor8 != "" && valor9 != ""){
+                    document.getElementById('mensagem').innerHTML = "Empatou, deu velhaaaa!!!"
                 }
             }
 
@@ -52,7 +64,24 @@
                 let l3c2 = document.getElementById('l3c2').value.toUpperCase()
                 let l3c3 = document.getElementById('l3c3').value.toUpperCase()
 
-                verificarSeGanhou(l1c1, l1c2, l1c3)
+                //HORIZONTAIS
+                let ganhou1 = verificarSeGanhou(l1c1, l1c2, l1c3)
+                let ganhou2 = verificarSeGanhou(l2c1, l2c2, l2c3)
+                let ganhou3 = verificarSeGanhou(l3c1, l3c2, l3c3)
+
+                //DIAGONAIS
+                let ganhou4 = verificarSeGanhou(l1c1, l2c2, l3c3)
+                let ganhou5 = verificarSeGanhou(l3c1, l2c2, l1c3)
+
+                //VERTICAIS
+                let ganhou6 = verificarSeGanhou(l1c1, l2c1, l3c1)
+                let ganhou7 = verificarSeGanhou(l1c2, l2c2, l3c2)
+                let ganhou8 = verificarSeGanhou(l1c3, l2c3, l3c3)
+
+                if(ganhou1 == false && ganhou2 == false && ganhou3 == false && ganhou4 == false &&
+                    ganhou5 == false && ganhou6 == false && ganhou7 == false && ganhou8 == false){
+                    verificarEmpate(l1c1, l1c2, l1c3, l2c1, l2c2, l2c3, l3c1, l3c2, l3c3,)
+                }
                 
             }
         </script>
