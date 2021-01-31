@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <style>
+            #ta{
+                font-size: 90px;
+                color: red;
+            }
+        </style>
+        <title>Professor Girafales</title>
+    </head>
+
+    <body onload="exibirTa()">
+
+        <img src="ta-ta-ta-ta-ta.gif">
+
+        <div id="ta">
+        </div>
+
+        <script>
+            function taAsincrono(milisegundos){
+                setTimeout(() => {
+                    document.getElementById('ta').innerHTML = document.getElementById('ta').innerHTML + " ta"
+                }, milisegundos)
+            }
+
+            function exibirTa(){
+                for(let i=0; i<5; i++){
+                    taAsincrono(i*1000)
+                }
+
+                setTimeout(() => {
+                    document.getElementById('ta').innerHTML = document.getElementById('ta').innerHTML + " !"
+                }, 5050)
+            }
+        </script>
+        
+    </body>
+
+</html>
