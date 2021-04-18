@@ -1,6 +1,11 @@
 <html>
 <head>
-    <title>Livros</title>
+    <title>Mandalas</title> 
+</head>
+
+<body>
+    <img src="" id="img-mandala">
+
     <script lang="javascript">
         let numeroAleatorio = Math.floor(Math.random() * 3)
         /*
@@ -12,11 +17,17 @@
         3 - Mostrar a mandala na tela usando a tag img
             Se basear no arquivo aulas-iris\aula-11\professor-girafales.html que usa a tag img
         */
+       let mandalas = [
+           'preto-e-branco.png',
+           'mandala-das-cores-primarias.png',
+           'mandala-colorida.png'
+       ]
+
+       document.getElementById('img-mandala').src = mandalas[numeroAleatorio]
+
+       setTimeout("location.reload(true);", 2000);
+       
     </script>
-</head>
-
-<body>
-
 </body>
 
 </html>
