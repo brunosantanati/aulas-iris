@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>Mandalas</title> 
+</head>
+
+<body>
+    <img src="" id="img-mandala">
+
+    <script lang="javascript">
+        
+        let tempoMaximo = 18000
+        let tempo = 0
+        let ultimoNumero = 0
+
+        function sortearNumeroSemRepetir(){
+            let numeroAleatorio = Math.floor(Math.random() * 3)
+            while(true){
+                if(numeroAleatorio == ultimoNumero){
+                    console.log("igual:" + numeroAleatorio)
+                    numeroAleatorio = Math.floor(Math.random() * 3)  
+                }else{
+                    break
+                }
+            }
+            return numeroAleatorio
+        }
+
+        function mostrarMandala(){
+
+            console.log("executando...")
+
+            let mandalas = [
+                'preto-e-branco.png',
+                'mandala-das-cores-primarias.png',
+                'mandala-colorida.png'
+            ]
+
+            let numeroAleatorio = sortearNumeroSemRepetir()
+            console.log(numeroAleatorio)
+            console.log(ultimoNumero)
+            ultimoNumero = numeroAleatorio
+            document.getElementById('img-mandala').src = mandalas[numeroAleatorio]
+
+            if(tempo <= tempoMaximo){
+                tempo = tempo + 2000
+                setTimeout(mostrarMandala, tempo)
+            }else{
+                alert("Fim")
+            }
+       }     
+       
+       mostrarMandala()
+       
+    </script>
+</body>
+
+</html>
