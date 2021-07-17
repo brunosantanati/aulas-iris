@@ -6,7 +6,9 @@
     <script lang="javascript">
         $(document).ready(function(){
             $("button").click(function(){
-                $.ajax({url: "https://www.abibliadigital.com.br/api/verses/nvi/sl/23", success: function(result){
+                let livro = $('#livro').val();
+                let capitulo = $('#capitulo').val();
+                $.ajax({url: "https://www.abibliadigital.com.br/api/verses/nvi/" + livro + "/" + capitulo, success: function(result){
                     //console.log(result);
                     //console.log(result.verses[0].text);
                     $('#lista li').remove();
@@ -22,6 +24,9 @@
 <body>
 
     <ul id="lista"></ul>
+
+    <input type="text" id="livro">
+    <input type="text" id="capitulo">
 
     <button>Mostrar versículos</button>
 
