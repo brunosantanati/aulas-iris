@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Versículos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script lang="javascript">
+        $(document).ready(function(){
+            $("button").click(function(){
+                $.ajax({url: "https://www.abibliadigital.com.br/api/verses/nvi/sl/23", success: function(result){
+                    //console.log(result);
+                    //console.log(result.verses[0].text);
+                    $('#lista li').remove();
+                    for(let i=0; i < result.verses.length; i++){
+                        $("#lista").append('<li>' + result.verses[i].text + '</li>');
+                    }
+                }});
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <ul id="lista"></ul>
+
+    <button>Mostrar versículos</button>
+
+</body>
+
+</html>
