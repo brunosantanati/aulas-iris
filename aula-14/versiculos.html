@@ -21,16 +21,62 @@
             });
         });
     </script>
+
+    <style>
+        label { 
+            display:block;
+        }
+
+        input {
+            margin: 8px 0px;
+        }
+
+        #container {
+            background: url("jesus.png") no-repeat fixed center center;
+            background-size: 600px 600px;
+            opacity: 0.3;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+
+        #content{
+            opacity: 1;
+        }
+
+        body{
+            background-color: #F6F7F7;
+        }
+    </style>
 </head>
 
 <body>
 
-    <ol id="lista"></ol>
+    <div id="container">
+    </div>
 
-    <input type="text" id="livro">
-    <input type="text" id="capitulo">
+    <div id="content">
+        <div>
+            <ol id="lista"></ol>
+        </div>
 
-    <button>Mostrar versículos</button>
+        <div>
+            <div>
+                <label for="livro">Livro da bíblia (nome abreviado)</label>
+                <input type="text" id="livro">
+            </div>
+            </div>
+                <label for="capitulo">Capítulo (número)</label>
+                <input type="text" id="capitulo">
+            </div>
+            <div>
+                <button>Mostrar versículos</button>
+            </div>
+        </div>
+    </div>
 
 </body>
 
