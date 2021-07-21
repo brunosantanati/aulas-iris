@@ -24,10 +24,10 @@
                     $('#lista li').remove();
 
                     if(versiculo){
-                        $("#lista").append('<li>' + result.text + '</li>');
+                        $("#lista").append('<li>' + result.number + " - " + result.text + '</li>');
                     }else{
                         for(let i=0; i < result.verses.length; i++){
-                            $("#lista").append('<li>' + result.verses[i].text + '</li>');
+                            $("#lista").append('<li>' + result.verses[i].number + " - " + result.verses[i].text + '</li>');
                         }
                     }
                 }});
@@ -63,6 +63,10 @@
         body{
             background-color: #F6F7F7;
         }
+
+        ul{
+            list-style: none;
+        }
     </style>
 </head>
 
@@ -73,7 +77,7 @@
 
     <div id="content">
         <div>
-            <ol id="lista"></ol>
+            <ul id="lista"></ul>
         </div>
 
         <div>
