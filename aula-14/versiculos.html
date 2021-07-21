@@ -10,12 +10,25 @@
             $("button").click(function(){
                 let livro = $('#livro').val();
                 let capitulo = $('#capitulo').val();
-                $.ajax({url: "https://www.abibliadigital.com.br/api/verses/nvi/" + livro + "/" + capitulo, success: function(result){
+                let versiculo = $ ('#versiculo').val();
+
+                if(versiculo){
+                    url = "https://www.abibliadigital.com.br/api/verses/nvi/" + livro + "/" + capitulo + "/" +  versiculo;
+                }else{
+                    url = "https://www.abibliadigital.com.br/api/verses/nvi/" + livro + "/" + capitulo;
+                }
+
+                $.ajax({url: url, success: function(result){
                     //console.log(result);
                     //console.log(result.verses[0].text);
                     $('#lista li').remove();
-                    for(let i=0; i < result.verses.length; i++){
-                        $("#lista").append('<li>' + result.verses[i].text + '</li>');
+
+                    if(versiculo){
+                        $("#lista").append('<li>' + result.text + '</li>');
+                    }else{
+                        for(let i=0; i < result.verses.length; i++){
+                            $("#lista").append('<li>' + result.verses[i].text + '</li>');
+                        }
                     }
                 }});
             });
@@ -64,17 +77,26 @@
         </div>
 
         <div>
+            
             <div>
                 <label for="livro">Livro da bíblia (nome abreviado)</label>
                 <input type="text" id="livro">
             </div>
+
             </div>
                 <label for="capitulo">Capítulo (número)</label>
                 <input type="text" id="capitulo">
             </div>
+
+            <div>
+                <label for="versiculo">Versículo (número)</label>
+                <input type="text" id="versiculo">
+            </div>
+
             <div>
                 <button>Mostrar versículos</button>
             </div>
+
         </div>
     </div>
 
