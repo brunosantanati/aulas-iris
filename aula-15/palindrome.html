@@ -67,11 +67,18 @@
         }
 
         function descobrir(){
-            var stack = new Stack();
-            stack.push(10);
+
+            let palavra = document.getElementById("campoTexto").value;
+            console.log(palavra);
+
+            let stack = new Stack();
+            let palavraInvertida = "";
+
+            /*
+            stack.push('A');
             console.log(stack.printStack());
-            stack.push(20);
-            stack.push(30);
+            stack.push('B');
+            stack.push('C');
             console.log(stack.printStack());
             console.log(stack.peek());
             console.log(stack.printStack());
@@ -79,8 +86,27 @@
             console.log(stack.printStack());
             console.log(stack.pop());
             console.log(stack.printStack());
-        }
+            */
 
+            for (var i = 0; i < palavra.length; i++){
+                stack.push(palavra.charAt(i));
+            }
+
+            console.log(stack.printStack());
+
+            for (var i = 0; i < palavra.length; i++){
+                palavraInvertida = palavraInvertida + stack.pop();
+            }        
+
+            console.log(palavraInvertida);
+
+            if (palavra == palavraInvertida){
+                alert('O que você escreveu é palíndrome: ' + palavra);
+            } else {
+                alert('o que você escreveu não é palíndrome: '+ palavra);
+            }
+        }
+        
     </script>
 
 </body>
