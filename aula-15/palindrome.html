@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome</title>
+</head>
+<body>
+    <div>
+        Digite a palavra que você deseja saber se é palindrome:
+        <input type="text" id="campoTexto">
+    </div>
+    <div>
+        <button type="button" onclick="descobrir()">Descobrir</button>
+    </div>
+
+    <script>
+        /*
+        Exemplo de implementação de Stack em JavaScript:
+        https://www.geeksforgeeks.org/implementation-stack-javascript/
+        */
+
+        class Stack {
+  
+            constructor()
+            {
+                this.items = [];
+            }
+
+            push(element)
+            {
+                // push element into the items
+                this.items.push(element);
+            }
+
+            pop()
+            {
+                // return top most element in the stack
+                // and removes it from the stack
+                // Underflow if stack is empty
+                if (this.items.length == 0)
+                    return "Underflow";
+                return this.items.pop();
+            }
+
+            peek()
+            {
+                // return the top most element from the stack
+                // but does'nt delete it.
+                return this.items[this.items.length - 1];
+            }
+
+            isEmpty()
+            {
+                // return true if stack is empty
+                return this.items.length == 0;
+            }
+
+            printStack()
+            {
+                var str = "";
+                for (var i = 0; i < this.items.length; i++)
+                    str += this.items[i] + " ";
+                return str;
+            }
+        }
+
+        function descobrir(){
+            var stack = new Stack();
+            stack.push(10);
+            console.log(stack.printStack());
+            stack.push(20);
+            stack.push(30);
+            console.log(stack.printStack());
+            console.log(stack.peek());
+            console.log(stack.printStack());
+            console.log(stack.pop());
+            console.log(stack.printStack());
+            console.log(stack.pop());
+            console.log(stack.printStack());
+        }
+
+    </script>
+
+</body>
+</html>
