@@ -22,17 +22,19 @@ public class Baralho {
     }
 
     private void sortearBaralho() {
-        var i1 = sortearNumero();
-        var i2 = sortearNumero();
-        var c1 = cartas.get(i1);
-        var c2 = cartas.get(i2);
-        cartas.add(i1, c2);
-        cartas.add(i2, c1);
+        for (int i = 0; i < 10000; i++) {
+            var i1 = sortearNumero();
+            var i2 = sortearNumero();
+            var c1 = cartas.remove(i1);
+            var c2 = cartas.remove(i2);
+            cartas.add(i1, c2);
+            cartas.add(i2, c1);
+        }
     }
 
     private int sortearNumero() {
         Random random = new Random();
-        return random.nextInt(52);
+        return random.nextInt(51);
     }
 
     public List<Carta> getCartas() {

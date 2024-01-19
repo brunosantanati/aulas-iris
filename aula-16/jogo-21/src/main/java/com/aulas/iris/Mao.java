@@ -34,7 +34,7 @@ public class Mao {
 
     public void mostrarMao() {
         System.out.println("mao do ".concat(donoDaMao));
-        cartas.forEach(Carta::getNome);
+        cartas.forEach(c -> System.out.println(c.getNome()));
         System.out.println(getPontos() + " pontos");
     }
 }

@@ -30,7 +30,7 @@ public class Carta {
         return switch (naipe) {
             case 1 -> "Espadas";
             case 2 -> "Copas";
-            case 3 -> "Espadilha";
+            case 3 -> "Paus";
             case 4 -> "Ouro";
             default -> throw new IllegalStateException();
         };

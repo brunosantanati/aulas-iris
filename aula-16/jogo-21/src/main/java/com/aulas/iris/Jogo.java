@@ -49,11 +49,29 @@ public class Jogo {
     }
 
     public void mostrarMensagensFinalDoJogo() {
+        System.out.println();
+        System.out.println("Acabou o jogo");
+        maoJogador.mostrarMao();
+        System.out.println();
+        maoDealer.mostrarMao();
+
         this.mostrarQuemGanhou();
     }
 
     public void mostrarQuemGanhou() {
-
+        if (maoJogador.getPontos() > 21 && maoDealer.getPontos() > 21) {
+            System.out.println("Dealer ganhou, e tu se lascou! AKAKAKAKAKA˚⊹♡");
+        }else if (maoJogador.getPontos() > 21) {
+            System.out.println("Dealer ganhou, e tu se lascou! AKAKAKAKAKA˚⊹♡");
+        }else if (maoDealer.getPontos() > 21){
+            System.out.println("Parabéns, você ganhou!˚⊹♡");
+        }else if (maoJogador.getPontos() == maoDealer.getPontos()){
+            System.out.println("Deu emṕate! Que tal tentar de novo, em truta?");
+        }else if (maoJogador.getPontos() > maoDealer.getPontos()){
+            System.out.println("Parabéns, você ganhou!˚⊹♡");
+        }else {
+            System.out.println("Cê é ruim mesmo, em, cara, até o robô ganha de você!˚⊹♡");
+        }
     }
 
     public void limparTerminal() {
